@@ -11,12 +11,11 @@ SELECT
 FROM
 	Products
 WHERE
-	unitPrice = (
+	unitPrice IN (
 	SELECT
 		MAX(unitPrice)
     FROM
-		Products
-	);
+		Products);
     
 /*
 2. What is the order id, shipping name and shipping address of all orders shipped via
@@ -74,6 +73,26 @@ WHERE
 	employeeID = (
     SELECT
 		employeeID
+	FROM
+		Orders
+	Where
+		orderID = 10266
+    );
+
+/*
+ 5. What is the name of the customer that bought order 10266?
+ */
+ SELECT
+	customerID,
+	companyName
+    
+FROM
+	Customers
+WHERE
+	customerID = (
+    SELECT
+		customerID
+        
 	FROM
 		Orders
 	Where
