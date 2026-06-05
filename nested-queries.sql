@@ -98,3 +98,15 @@ WHERE
 	Where
 		orderID = 10266
     );
+    
+/*
+using join
+*/
+SELECT
+	c.CustomerID,
+	c.CompanyName
+FROM
+	Customers c
+	JOIN Orders o ON (o.CustomerID = c.CustomerID)
+WHERE
+	OrderID = 10266;
